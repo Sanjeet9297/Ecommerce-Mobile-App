@@ -1,24 +1,22 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { Provider } from 'react-redux';
+import { store } from '@/store';
+import "@/constants/theme"; 
+import "@/hooks/use-color-scheme"; 
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
-
+/**
+ * Root Layout for the application.
+ * Globally hides the headers to prevent "Splash screen" or other route names 
+ * from appearing at the top of the onboarding screens.
+ */
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+    <Provider store={store}>
+      <Stack screenOptions={{ headerShown: false }}>
+        {/* We let the Stack handle all routes dynamically with headers hidden */}
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+      <StatusBar style="dark" />
+    </Provider>
   );
 }
