@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { Ionicons, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { width } = Dimensions.get('window');
 
@@ -17,11 +18,11 @@ export default function ShoppingBagPage() {
       {/* 1. Header with Back arrow and Wishlist heart */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="chevron-back" size={28} color="#000000" />
+          <Ionicons name="chevron-back" size={moderateScale(28)} color="#000000" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Shopping Bag</Text>
         <TouchableOpacity style={styles.wishlistButton}>
-          <Ionicons name="heart-outline" size={24} color="#000000" />
+          <Ionicons name="heart-outline" size={moderateScale(24)} color="#000000" />
         </TouchableOpacity>
       </View>
 
@@ -40,11 +41,11 @@ export default function ShoppingBagPage() {
             <View style={styles.selectorsRow}>
                 <TouchableOpacity style={styles.selector}>
                    <Text style={styles.selectorText}>Size <Text style={styles.selectorValue}>42</Text></Text>
-                   <Ionicons name="chevron-down" size={14} color="#000" />
+                   <Ionicons name="chevron-down" size={moderateScale(14)} color="#000" />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.selector}>
                    <Text style={styles.selectorText}>Qty <Text style={styles.selectorValue}>1</Text></Text>
-                   <Ionicons name="chevron-down" size={14} color="#000" />
+                   <Ionicons name="chevron-down" size={moderateScale(14)} color="#000" />
                 </TouchableOpacity>
             </View>
 
@@ -58,7 +59,7 @@ export default function ShoppingBagPage() {
         {/* 3. Coupon Section */}
         <TouchableOpacity style={styles.couponSection}>
            <View style={styles.couponLeft}>
-              <MaterialCommunityIcons name="ticket-percent-outline" size={24} color="#000000" />
+              <MaterialCommunityIcons name="ticket-percent-outline" size={moderateScale(24)} color="#000000" />
               <Text style={styles.couponText}>Apply Coupons</Text>
            </View>
            <Text style={styles.selectLink}>Select</Text>
@@ -132,73 +133,73 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 50,
+    paddingHorizontal: horizontalScale(20),
+    paddingTop: verticalScale(50),
     backgroundColor: '#FFFFFF',
-    paddingBottom: 20,
+    paddingBottom: verticalScale(20),
   },
   backButton: {
-    width: 44,
-    height: 44,
+    width: moderateScale(44),
+    height: moderateScale(44),
     justifyContent: 'center',
   },
   headerTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '800',
     color: '#000000',
   },
   wishlistButton: {
-    width: 44,
-    height: 44,
+    width: moderateScale(44),
+    height: moderateScale(44),
     justifyContent: 'center',
     alignItems: 'center',
   },
   scrollContent: {
-    paddingHorizontal: 20,
-    paddingTop: 10,
+    paddingHorizontal: horizontalScale(20),
+    paddingTop: verticalScale(10),
   },
   itemCard: {
     flexDirection: 'row',
-    marginBottom: 30,
+    marginBottom: verticalScale(30),
   },
   itemImage: {
-    width: 130,
-    height: 160,
-    borderRadius: 8,
-    marginRight: 15,
+    width: horizontalScale(130),
+    height: verticalScale(160),
+    borderRadius: moderateScale(8),
+    marginRight: horizontalScale(15),
   },
   itemInfo: {
     flex: 1,
     justifyContent: 'center',
   },
   itemTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '800',
     color: '#000000',
-    marginBottom: 5,
+    marginBottom: verticalScale(5),
   },
   itemSubtitle: {
-    fontSize: 13,
+    fontSize: moderateScale(13),
     color: '#333333',
-    lineHeight: 18,
-    marginBottom: 10,
+    lineHeight: verticalScale(18),
+    marginBottom: verticalScale(10),
   },
   selectorsRow: {
     flexDirection: 'row',
-    gap: 10,
-    marginBottom: 15,
+    gap: horizontalScale(10),
+    marginBottom: verticalScale(15),
   },
   selector: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F3F3F3',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 6,
-    gap: 8,
+    paddingHorizontal: horizontalScale(10),
+    paddingVertical: verticalScale(6),
+    borderRadius: moderateScale(6),
+    gap: horizontalScale(8),
   },
   selectorText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#000000',
   },
   selectorValue: {
@@ -207,14 +208,14 @@ const styles = StyleSheet.create({
   deliveryRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: horizontalScale(8),
   },
   deliveryLabel: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#333333',
   },
   deliveryDate: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     fontWeight: '800',
     color: '#000000',
   },
@@ -222,137 +223,137 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 15,
+    paddingVertical: verticalScale(15),
     borderTopWidth: 1,
     borderTopColor: '#EEEEEE',
-    marginBottom: 15,
-    marginTop: 10,
+    marginBottom: verticalScale(15),
+    marginTop: verticalScale(10),
   },
   couponLeft: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    gap: horizontalScale(10),
   },
   couponText: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontWeight: '600',
     color: '#000000',
   },
   selectLink: {
     color: '#F83758',
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontWeight: '700',
   },
   divider: {
     height: 1,
     backgroundColor: '#EEEEEE',
-    marginVertical: 15,
+    marginVertical: verticalScale(15),
   },
   paymentContainer: {
-    paddingVertical: 10,
+    paddingVertical: verticalScale(10),
   },
   sectionHeader: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
     color: '#000000',
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   paymentRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 15,
+    marginBottom: verticalScale(15),
   },
   paymentLabel: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     color: '#000000',
     fontWeight: '500',
   },
   amountBold: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontWeight: '800',
     color: '#000000',
   },
   labelWithLink: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    gap: horizontalScale(10),
   },
   linkTextSmall: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#F83758',
     fontWeight: '600',
   },
   redLink: {
-    fontSize: 13,
+    fontSize: moderateScale(13),
     color: '#F83758',
     fontWeight: '600',
   },
   freeText: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     color: '#F83758',
     fontWeight: '700',
   },
   totalContainer: {
-    paddingVertical: 10,
+    paddingVertical: verticalScale(10),
   },
   orderTotalLabel: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '600',
     color: '#000000',
   },
   amountBoldBig: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '800',
     color: '#000000',
   },
   emiRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 15,
+    gap: horizontalScale(15),
   },
   emiLabel: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#000000',
     fontWeight: '500',
   },
   stickyFooter: {
     flexDirection: 'row',
-    padding: 20,
-    paddingBottom: 40,
+    padding: horizontalScale(20),
+    paddingBottom: verticalScale(40),
     backgroundColor: '#F9F9F9',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
+    borderTopLeftRadius: moderateScale(25),
+    borderTopRightRadius: moderateScale(25),
     alignItems: 'center',
     elevation: 20,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: -5 },
+    shadowOffset: { width: 0, height: verticalScale(-5) },
     shadowOpacity: 0.1,
-    shadowRadius: 10,
+    shadowRadius: moderateScale(10),
   },
   footerLeft: {
     flex: 1,
   },
   footerTotal: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '800',
     color: '#000000',
   },
   viewDetailsText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#F83758',
     fontWeight: '600',
-    marginTop: 4,
+    marginTop: verticalScale(4),
   },
   proceedButton: {
     backgroundColor: '#F83758',
-    paddingHorizontal: 30,
-    paddingVertical: 16,
-    borderRadius: 10,
+    paddingHorizontal: horizontalScale(30),
+    paddingVertical: verticalScale(16),
+    borderRadius: moderateScale(10),
   },
   proceedText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '800',
   },
 });

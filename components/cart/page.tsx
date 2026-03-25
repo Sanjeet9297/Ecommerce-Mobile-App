@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Dimensions, FlatList } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { Ionicons, Feather, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import BottomNavigation from '../shared/bottomNavigation';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { width } = Dimensions.get('window');
 
@@ -28,10 +29,10 @@ export default function ProductDetailsPage() {
         {/* 1. Header with Back and Cart icons */}
         <View style={styles.header}>
           <TouchableOpacity style={styles.headerIconButton}>
-            <Ionicons name="chevron-back" size={28} color="#000000" />
+            <Ionicons name="chevron-back" size={moderateScale(28)} color="#000000" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.headerIconButton}>
-            <Feather name="shopping-cart" size={24} color="#000000" />
+            <Feather name="shopping-cart" size={moderateScale(24)} color="#000000" />
           </TouchableOpacity>
         </View>
 
@@ -45,7 +46,7 @@ export default function ProductDetailsPage() {
              />
              {/* Carousel navigation arrow overlay */}
              <TouchableOpacity style={styles.carouselNext}>
-                <Ionicons name="chevron-forward" size={24} color="#676767" />
+                <Ionicons name="chevron-forward" size={moderateScale(24)} color="#676767" />
              </TouchableOpacity>
           </View>
           <View style={styles.carouselDots}>
@@ -78,9 +79,9 @@ export default function ProductDetailsPage() {
           <View style={styles.ratingRow}>
             <View style={styles.stars}>
                {[1,2,3,4].map((_, i) => (
-                 <Ionicons key={i} name="star" size={16} color="#EDB312" />
+                 <Ionicons key={i} name="star" size={moderateScale(16)} color="#EDB312" />
                ))}
-               <Ionicons name="star-half" size={16} color="#EDB312" />
+               <Ionicons name="star-half" size={moderateScale(16)} color="#EDB312" />
             </View>
             <Text style={styles.reviewCount}>56,890</Text>
           </View>
@@ -99,15 +100,15 @@ export default function ProductDetailsPage() {
           {/* Features Badges */}
           <View style={styles.badgeRow}>
             <View style={styles.badge}>
-               <Ionicons name="location-outline" size={16} color="#676767" />
+               <Ionicons name="location-outline" size={moderateScale(16)} color="#676767" />
                <Text style={styles.badgeText}>Nearest Store</Text>
             </View>
             <View style={styles.badge}>
-               <Feather name="lock" size={14} color="#676767" />
+               <Feather name="lock" size={moderateScale(14)} color="#676767" />
                <Text style={styles.badgeText}>VIP</Text>
             </View>
             <View style={styles.badge}>
-               <MaterialCommunityIcons name="keyboard-return" size={16} color="#676767" />
+               <MaterialCommunityIcons name="keyboard-return" size={moderateScale(16)} color="#676767" />
                <Text style={styles.badgeText}>Return policy</Text>
             </View>
           </View>
@@ -115,14 +116,14 @@ export default function ProductDetailsPage() {
           {/* Action Buttons */}
           <View style={styles.actionRow}>
             <TouchableOpacity style={styles.cartButton}>
-               <Ionicons name="cart-outline" size={24} color="#FFFFFF" />
+               <Ionicons name="cart-outline" size={moderateScale(24)} color="#FFFFFF" />
                <Text style={styles.actionBtnText}>Go to cart</Text>
             </TouchableOpacity>
             <TouchableOpacity 
               style={styles.buyButton}
               onPress={() => router.push('/shopping-bag')}
             >
-               <FontAwesome5 name="hand-pointer" size={20} color="#FFFFFF" />
+               <FontAwesome5 name="hand-pointer" size={moderateScale(20)} color="#FFFFFF" />
                <Text style={styles.actionBtnText}>Buy Now</Text>
             </TouchableOpacity>
           </View>
@@ -136,11 +137,11 @@ export default function ProductDetailsPage() {
           {/* Secondary Actions */}
           <View style={styles.secondaryActionRow}>
              <TouchableOpacity style={styles.secondaryBtn}>
-                <Ionicons name="eye-outline" size={20} color="#676767" />
+                <Ionicons name="eye-outline" size={moderateScale(20)} color="#676767" />
                 <Text style={styles.secondaryBtnText}>View Similar</Text>
              </TouchableOpacity>
              <TouchableOpacity style={styles.secondaryBtn}>
-                <Ionicons name="git-compare-outline" size={20} color="#676767" />
+                <Ionicons name="git-compare-outline" size={moderateScale(20)} color="#676767" />
                 <Text style={styles.secondaryBtnText}>Add to Compare</Text>
              </TouchableOpacity>
           </View>
@@ -151,8 +152,8 @@ export default function ProductDetailsPage() {
              <View style={styles.statsSubtitle}>
                <Text style={styles.itemCount}>282+ Items</Text>
                <View style={styles.filterRow}>
-                 <TouchableOpacity style={styles.miniBtn}><Text style={styles.miniBtnText}>Sort</Text><Ionicons name="swap-vertical" size={12} color="#000000"/></TouchableOpacity>
-                 <TouchableOpacity style={styles.miniBtn}><Text style={styles.miniBtnText}>Filter</Text><Feather name="filter" size={12} color="#000000"/></TouchableOpacity>
+                 <TouchableOpacity style={styles.miniBtn}><Text style={styles.miniBtnText}>Sort</Text><Ionicons name="swap-vertical" size={moderateScale(12)} color="#000000"/></TouchableOpacity>
+                 <TouchableOpacity style={styles.miniBtn}><Text style={styles.miniBtnText}>Filter</Text><Feather name="filter" size={moderateScale(12)} color="#000000"/></TouchableOpacity>
                </View>
              </View>
           </View>
@@ -165,11 +166,11 @@ export default function ProductDetailsPage() {
                  <Text style={styles.cardDesc} numberOfLines={2}>{item.desc}</Text>
                  <Text style={styles.cardPrice}>{item.price}</Text>
                  <View style={styles.cardRating}>
-                   <Ionicons name="star" size={12} color="#EDB312" />
-                   <Ionicons name="star" size={12} color="#EDB312" />
-                   <Ionicons name="star" size={12} color="#EDB312" />
-                   <Ionicons name="star" size={12} color="#EDB312" />
-                   <Ionicons name="star-outline" size={12} color="#EDB312" />
+                   <Ionicons name="star" size={moderateScale(12)} color="#EDB312" />
+                   <Ionicons name="star" size={moderateScale(12)} color="#EDB312" />
+                   <Ionicons name="star" size={moderateScale(12)} color="#EDB312" />
+                   <Ionicons name="star" size={moderateScale(12)} color="#EDB312" />
+                   <Ionicons name="star-outline" size={moderateScale(12)} color="#EDB312" />
                  </View>
                </View>
              ))}
@@ -177,7 +178,7 @@ export default function ProductDetailsPage() {
 
         </View>
 
-        <View style={{ height: 100 }} />
+        <View style={{ height: verticalScale(100) }} />
       </ScrollView>
 
       {/* Persistent Bottom Navigation with highlighted center icon */}
@@ -192,32 +193,32 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   scrollContent: {
-    paddingBottom: 20,
+    paddingBottom: verticalScale(20),
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 50,
-    paddingBottom: 15,
+    paddingHorizontal: horizontalScale(20),
+    paddingTop: verticalScale(50),
+    paddingBottom: verticalScale(15),
   },
   headerIconButton: {
-    width: 44,
-    height: 44,
+    width: moderateScale(44),
+    height: moderateScale(44),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F3F3F3',
-    borderRadius: 22,
+    borderRadius: moderateScale(22),
   },
   heroContainer: {
     width: width,
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   carouselWrapper: {
-    width: width - 40,
-    height: 250,
-    borderRadius: 15,
+    width: width - horizontalScale(40),
+    height: verticalScale(250),
+    borderRadius: moderateScale(15),
     overflow: 'hidden',
     position: 'relative',
   },
@@ -227,57 +228,57 @@ const styles = StyleSheet.create({
   },
   carouselNext: {
     position: 'absolute',
-    right: 15,
+    right: horizontalScale(15),
     top: '50%',
-    marginTop: -20,
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    marginTop: verticalScale(-20),
+    width: moderateScale(40),
+    height: moderateScale(40),
+    borderRadius: moderateScale(20),
     backgroundColor: 'rgba(255,255,255,0.7)',
     justifyContent: 'center',
     alignItems: 'center',
   },
   carouselDots: {
     flexDirection: 'row',
-    gap: 8,
-    marginTop: 15,
+    gap: horizontalScale(8),
+    marginTop: verticalScale(15),
   },
   dot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    width: moderateScale(8),
+    height: moderateScale(8),
+    borderRadius: moderateScale(4),
     backgroundColor: '#E0E0E0',
   },
   activeDot: {
     backgroundColor: '#F83758',
-    width: 20,
+    width: moderateScale(20),
   },
   productInfoSection: {
-    paddingHorizontal: 20,
+    paddingHorizontal: horizontalScale(20),
   },
   sizeLabel: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '700',
     color: '#000000',
-    marginBottom: 10,
+    marginBottom: verticalScale(10),
   },
   sizeScroll: {
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   sizeBox: {
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    borderRadius: 6,
+    paddingHorizontal: horizontalScale(15),
+    paddingVertical: verticalScale(8),
+    borderRadius: moderateScale(6),
     borderWidth: 1,
     borderColor: '#F83758',
-    marginRight: 10,
+    marginRight: horizontalScale(10),
     backgroundColor: '#FFFFFF',
   },
   sizeBoxActive: {
     backgroundColor: '#F83758',
   },
   sizeText: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '600',
     color: '#F83758',
   },
@@ -285,62 +286,62 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   productTitle: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
     fontWeight: '800',
     color: '#000000',
-    marginBottom: 5,
+    marginBottom: verticalScale(5),
   },
   productSubTitle: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#676767',
-    marginBottom: 10,
+    marginBottom: verticalScale(10),
   },
   ratingRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
-    marginBottom: 15,
+    gap: horizontalScale(10),
+    marginBottom: verticalScale(15),
   },
   stars: {
     flexDirection: 'row',
-    gap: 2,
+    gap: horizontalScale(2),
   },
   reviewCount: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#A8A8A8',
   },
   priceRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
-    marginBottom: 20,
+    gap: horizontalScale(12),
+    marginBottom: verticalScale(20),
   },
   oldPrice: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: '#BBBBBB',
     textDecorationLine: 'line-through',
   },
   currentPrice: {
-    fontSize: 22,
+    fontSize: moderateScale(22),
     fontWeight: '800',
     color: '#000000',
   },
   discountText: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: '#F83758',
     fontWeight: '700',
   },
   detailsTitle: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '700',
     color: '#000000',
-    marginBottom: 8,
+    marginBottom: verticalScale(8),
   },
   detailsText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#000000',
-    lineHeight: 18,
-    marginBottom: 20,
+    lineHeight: verticalScale(18),
+    marginBottom: verticalScale(20),
   },
   moreText: {
     color: '#F83758',
@@ -348,85 +349,85 @@ const styles = StyleSheet.create({
   },
   badgeRow: {
     flexDirection: 'row',
-    gap: 12,
-    marginBottom: 30,
+    gap: horizontalScale(12),
+    marginBottom: verticalScale(30),
   },
   badge: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 8,
+    paddingHorizontal: horizontalScale(12),
+    paddingVertical: verticalScale(8),
+    borderRadius: moderateScale(8),
     borderWidth: 1,
     borderColor: '#EEEEEE',
-    gap: 6,
+    gap: horizontalScale(6),
   },
   badgeText: {
-    fontSize: 11,
+    fontSize: moderateScale(11),
     color: '#676767',
     fontWeight: '500',
   },
   actionRow: {
     flexDirection: 'row',
-    gap: 15,
-    marginBottom: 25,
+    gap: horizontalScale(15),
+    marginBottom: verticalScale(25),
   },
   cartButton: {
     flex: 1,
     flexDirection: 'row',
-    height: 55,
+    height: verticalScale(55),
     backgroundColor: '#4392F1',
-    borderRadius: 10,
+    borderRadius: moderateScale(10),
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
+    gap: horizontalScale(10),
   },
   buyButton: {
     flex: 1,
     flexDirection: 'row',
-    height: 55,
+    height: verticalScale(55),
     backgroundColor: '#50DB8C',
-    borderRadius: 10,
+    borderRadius: moderateScale(10),
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
+    gap: horizontalScale(10),
   },
   actionBtnText: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
   },
   deliveryBanner: {
     backgroundColor: '#FFCCD5',
-    padding: 15,
-    borderRadius: 12,
-    marginBottom: 25,
+    padding: moderateScale(15),
+    borderRadius: moderateScale(12),
+    marginBottom: verticalScale(25),
   },
   deliveryTop: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#000000',
   },
   deliveryTime: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '800',
     color: '#000000',
   },
   secondaryActionRow: {
     flexDirection: 'row',
-    gap: 15,
-    marginBottom: 40,
+    gap: horizontalScale(15),
+    marginBottom: verticalScale(40),
   },
   secondaryBtn: {
     flex: 1,
     flexDirection: 'row',
-    height: 50,
+    height: verticalScale(50),
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
     borderColor: '#EEEEEE',
-    borderRadius: 10,
+    borderRadius: moderateScale(10),
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
+    gap: horizontalScale(10),
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
@@ -435,17 +436,17 @@ const styles = StyleSheet.create({
   },
   secondaryBtnText: {
     color: '#676767',
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '600',
   },
   similarHeader: {
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   similarTitle: {
-    fontSize: 22,
+    fontSize: moderateScale(22),
     fontWeight: '800',
     color: '#000000',
-    marginBottom: 8,
+    marginBottom: verticalScale(8),
   },
   statsSubtitle: {
     flexDirection: 'row',
@@ -453,26 +454,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   itemCount: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
     color: '#000000',
   },
   filterRow: {
     flexDirection: 'row',
-    gap: 10,
+    gap: horizontalScale(10),
   },
   miniBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 5,
-    gap: 4,
+    paddingHorizontal: horizontalScale(10),
+    paddingVertical: verticalScale(5),
+    borderRadius: moderateScale(5),
+    gap: horizontalScale(4),
     elevation: 1,
   },
   miniBtnText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#000000',
   },
   similarGrid: {
@@ -481,10 +482,10 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   productCard: {
-    width: (width - 55) / 2,
+    width: (width - horizontalScale(55)) / 2,
     backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    marginBottom: 20,
+    borderRadius: moderateScale(12),
+    marginBottom: verticalScale(20),
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -494,33 +495,33 @@ const styles = StyleSheet.create({
   },
   cardImg: {
     width: '100%',
-    height: 180,
+    height: verticalScale(180),
     backgroundColor: '#F3F3F3',
   },
   cardTitle: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontWeight: '700',
     color: '#000000',
-    marginTop: 8,
-    paddingHorizontal: 8,
+    marginTop: verticalScale(8),
+    paddingHorizontal: horizontalScale(8),
   },
   cardDesc: {
-    fontSize: 10,
+    fontSize: moderateScale(10),
     color: '#676767',
-    paddingHorizontal: 8,
-    marginBottom: 6,
+    paddingHorizontal: horizontalScale(8),
+    marginBottom: verticalScale(6),
   },
   cardPrice: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontWeight: '800',
     color: '#000000',
-    paddingHorizontal: 8,
+    paddingHorizontal: horizontalScale(8),
   },
   cardRating: {
     flexDirection: 'row',
-    paddingHorizontal: 8,
-    paddingBottom: 10,
-    marginTop: 5,
-    gap: 2,
+    paddingHorizontal: horizontalScale(8),
+    paddingBottom: verticalScale(10),
+    marginTop: verticalScale(5),
+    gap: horizontalScale(2),
   },
 });
