@@ -1,8 +1,9 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter, usePathname } from 'expo-router';
-import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
+import { usePathname, useRouter } from 'expo-router';
+import React from 'react';
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { horizontalScale, moderateScale, verticalScale } from '../../constants/scaling';
 
 const { width } = Dimensions.get('window');
 
@@ -13,6 +14,7 @@ const { width } = Dimensions.get('window');
 const BottomNavigation = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const insets = useSafeAreaInsets();
 
   const navItems = [
     { name: 'Home', icon: 'home-outline', activeIcon: 'home', route: '/home' },
@@ -23,7 +25,7 @@ const BottomNavigation = () => {
   ];
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingBottom: Math.max(insets.bottom, verticalScale(10)) }]}>
       {navItems.map((item, index) => {
         const isActive = pathname === item.route;
         const color = isActive ? '#F83758' : '#000000';
@@ -31,24 +33,24 @@ const BottomNavigation = () => {
         if (item.isCenter) {
           return (
             <View key={index} style={styles.centerButtonWrapper}>
-              <TouchableOpacity 
+              <TouchableOpacity
                 style={[styles.centerButton, isActive && styles.centerButtonActive]}
                 onPress={() => router.push(item.route as any)}
                 activeOpacity={0.9}
               >
-                 <Ionicons 
-                   name={(isActive ? item.activeIcon : item.icon) as any} 
-                   size={moderateScale(30)} 
-                   color={isActive ? '#FFFFFF' : '#000000'} 
-                 />
+                <Ionicons
+                  name={(isActive ? item.activeIcon : item.icon) as any}
+                  size={moderateScale(30)}
+                  color={isActive ? '#FFFFFF' : '#000000'}
+                />
               </TouchableOpacity>
             </View>
           );
         }
 
         return (
-          <TouchableOpacity 
-            key={index} 
+          <TouchableOpacity
+            key={index}
             style={styles.navItem}
             onPress={() => router.push(item.route as any)}
           >
@@ -66,14 +68,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: verticalScale(70),
     backgroundColor: '#FFFFFF',
-    borderTopWidth: 1,
-    borderTopColor: '#EEEEEE',
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingBottom: verticalScale(5),
-    position: 'absolute',
-    bottom: 0,
-    width: width,
+    paddingTop: verticalScale(10),
+    borderTopWidth: 1,
+    borderTopColor: '#EEEEEE',
     elevation: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: -2 },
@@ -91,7 +90,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   centerButtonWrapper: {
-    marginTop: verticalScale(-45), 
+    marginTop: verticalScale(-40),
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,

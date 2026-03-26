@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Dimensions
 import { Ionicons, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
+import BottomNavigation from '../shared/bottomNavigation';
 
 const { width } = Dimensions.get('window');
 
@@ -14,7 +15,7 @@ export default function ShoppingBagPage() {
   const router = useRouter();
 
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
       {/* 1. Header with Back arrow and Wishlist heart */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
@@ -120,6 +121,9 @@ export default function ShoppingBagPage() {
              <Text style={styles.proceedText}>Proceed to Payment</Text>
           </TouchableOpacity>
       </View>
+
+      {/* Persistent Bottom Navigation */}
+      <BottomNavigation />
     </View>
   );
 }

@@ -159,7 +159,7 @@ export default function SettingsPage() {
           </TouchableOpacity>
         </View>
 
-        <View style={{ height: verticalScale(100) }} />
+        <View style={{ height: verticalScale(40) }} />
       </ScrollView>
 
       {/* Persistent Bottom Navigation */}

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image, TextInput, TouchableOpacity,
 import { Ionicons, Feather } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
+import BottomNavigation from '../shared/bottomNavigation';
 
 const { width } = Dimensions.get('window');
 
@@ -119,6 +120,9 @@ export default function ProfilePage() {
 
         <View style={{ height: verticalScale(40) }} />
       </ScrollView>
+
+      {/* Persistent Bottom Navigation */}
+      <BottomNavigation />
     </SafeAreaView>
   );
 }

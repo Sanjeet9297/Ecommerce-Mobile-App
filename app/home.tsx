@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Homepage from '../components/homepage/page';
-import BottomNavigation from '../components/shared/bottomNavigation';
 
 /**
  * Main Home Route
@@ -10,11 +9,7 @@ import BottomNavigation from '../components/shared/bottomNavigation';
 export default function HomeRoute() {
   return (
     <View style={styles.container}>
-      {/* Homepage Content */}
       <Homepage />
-      
-      {/* Custom Bottom Navigation Bar */}
-      <BottomNavigation />
     </View>
   );
 }

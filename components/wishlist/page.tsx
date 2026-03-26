@@ -111,7 +111,7 @@ export default function WishlistPage() {
         contentContainerStyle={styles.gridContent}
         showsVerticalScrollIndicator={false}
         columnWrapperStyle={styles.row}
-        ListFooterComponent={<View style={{ height: verticalScale(100) }} />}
+        ListFooterComponent={<View style={{ height: verticalScale(20) }} />}
       />
 
       {/* Shared Bottom Navigation (Active screen Wishlist recognized by route name) */}

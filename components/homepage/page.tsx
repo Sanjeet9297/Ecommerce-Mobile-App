@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image, TextInput, TouchableOpacity,
 import { Ionicons, Feather, MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
+import BottomNavigation from '../shared/bottomNavigation';
 
 const { width } = Dimensions.get('window');
 
@@ -29,7 +30,8 @@ export default function Homepage() {
   ];
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
+      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       
       {/* Top Header Bar */}
       <View style={styles.header}>
@@ -180,9 +182,13 @@ export default function Homepage() {
          </View>
       </View>
 
-      <View style={{ height: verticalScale(100) }} />
+      <View style={{ height: verticalScale(20) }} />
 
-    </ScrollView>
+      </ScrollView>
+
+      {/* Persistent Bottom Navigation */}
+      <BottomNavigation />
+    </View>
   );
 }
 

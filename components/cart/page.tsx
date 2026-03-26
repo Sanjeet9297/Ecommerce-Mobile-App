@@ -178,7 +178,7 @@ export default function ProductDetailsPage() {
 
         </View>
 
-        <View style={{ height: verticalScale(100) }} />
+        <View style={{ height: verticalScale(20) }} />
       </ScrollView>
 
       {/* Persistent Bottom Navigation with highlighted center icon */}
