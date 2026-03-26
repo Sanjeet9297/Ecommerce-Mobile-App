@@ -3,9 +3,10 @@ import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, Dimensions,
 import { Ionicons, Feather, MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import BottomNavigation from '../shared/bottomNavigation';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { width } = Dimensions.get('window');
-const columnWidth = (width - 50) / 2; // Fixed width for 2 columns
+const columnWidth = (width - horizontalScale(50)) / 2; // Scaled width for 2 columns
 
 /**
  * Wishlist Page Component
@@ -36,9 +37,9 @@ export default function WishlistPage() {
         <View style={styles.ratingRow}>
           <View style={styles.stars}>
             {[1, 2, 3, 4].map((_, i) => (
-              <Ionicons key={i} name="star" size={12} color="#EDB312" />
+              <Ionicons key={i} name="star" size={moderateScale(12)} color="#EDB312" />
             ))}
-            <Ionicons name="star-outline" size={12} color="#EDB312" />
+            <Ionicons name="star-outline" size={moderateScale(12)} color="#EDB312" />
           </View>
           <Text style={styles.reviewsText}>{item.reviews}</Text>
         </View>
@@ -51,7 +52,7 @@ export default function WishlistPage() {
       {/* 1. Header with interlocking logo shapes */}
       <View style={styles.topBar}>
         <TouchableOpacity>
-          <Feather name="menu" size={26} color="#000000" />
+          <Feather name="menu" size={moderateScale(26)} color="#000000" />
         </TouchableOpacity>
         <View style={styles.logoContainer}>
             <View style={styles.logoShapes}>
@@ -74,14 +75,14 @@ export default function WishlistPage() {
       {/* 2. Search Field */}
       <View style={styles.searchSection}>
         <View style={styles.searchWrapper}>
-          <Feather name="search" size={20} color="#BBBBBB" style={styles.searchIcon} />
+          <Feather name="search" size={moderateScale(20)} color="#BBBBBB" style={styles.searchIcon} />
           <TextInput 
             placeholder="Search any Product.." 
             placeholderTextColor="#BBBBBB"
             style={styles.searchInput}
           />
           <TouchableOpacity>
-             <MaterialIcons name="mic-none" size={24} color="#BBBBBB" />
+             <MaterialIcons name="mic-none" size={moderateScale(24)} color="#BBBBBB" />
           </TouchableOpacity>
         </View>
       </View>
@@ -92,11 +93,11 @@ export default function WishlistPage() {
         <View style={styles.filterButtons}>
           <TouchableOpacity style={styles.filterButton}>
             <Text style={styles.filterText}>Sort</Text>
-            <Ionicons name="swap-vertical" size={16} color="#000000" />
+            <Ionicons name="swap-vertical" size={moderateScale(16)} color="#000000" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.filterButton}>
             <Text style={styles.filterText}>Filter</Text>
-            <Feather name="filter" size={16} color="#000000" />
+            <Feather name="filter" size={moderateScale(16)} color="#000000" />
           </TouchableOpacity>
         </View>
       </View>
@@ -110,7 +111,7 @@ export default function WishlistPage() {
         contentContainerStyle={styles.gridContent}
         showsVerticalScrollIndicator={false}
         columnWrapperStyle={styles.row}
-        ListFooterComponent={<View style={{ height: 100 }} />}
+        ListFooterComponent={<View style={{ height: verticalScale(100) }} />}
       />
 
       {/* Shared Bottom Navigation (Active screen Wishlist recognized by route name) */}
@@ -128,9 +129,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 50,
-    paddingBottom: 20,
+    paddingHorizontal: horizontalScale(20),
+    paddingTop: verticalScale(50),
+    paddingBottom: verticalScale(20),
     backgroundColor: '#FFFFFF',
   },
   logoContainer: {
@@ -138,15 +139,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoShapes: {
-    width: 35,
-    height: 25,
+    width: horizontalScale(35),
+    height: verticalScale(25),
     justifyContent: 'center',
-    marginRight: 5,
+    marginRight: horizontalScale(5),
   },
   circle: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
+    width: horizontalScale(20),
+    height: horizontalScale(20),
+    borderRadius: horizontalScale(10),
     position: 'absolute',
   },
   circleRed: {
@@ -159,14 +160,14 @@ const styles = StyleSheet.create({
     opacity: 0.9,
   },
   logoText: {
-    fontSize: 22,
+    fontSize: moderateScale(22),
     fontWeight: '700',
     color: '#4392F1',
   },
   profileButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: horizontalScale(44),
+    height: horizontalScale(44),
+    borderRadius: horizontalScale(22),
     overflow: 'hidden',
     backgroundColor: '#EEEEEE',
   },
@@ -175,17 +176,17 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   searchSection: {
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingHorizontal: horizontalScale(20),
+    paddingBottom: verticalScale(20),
     backgroundColor: '#FFFFFF',
   },
   searchWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    borderRadius: 10,
-    height: 55,
-    paddingHorizontal: 15,
+    borderRadius: moderateScale(10),
+    height: verticalScale(55),
+    paddingHorizontal: horizontalScale(15),
     elevation: 4,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -193,37 +194,37 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   searchIcon: {
-    marginRight: 10,
+    marginRight: horizontalScale(10),
   },
   searchInput: {
     flex: 1,
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#000000',
   },
   statsRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 15,
+    paddingHorizontal: horizontalScale(20),
+    paddingVertical: verticalScale(15),
   },
   itemCount: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
     color: '#000000',
   },
   filterButtons: {
     flexDirection: 'row',
-    gap: 10,
+    gap: horizontalScale(10),
   },
   filterButton: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 6,
-    gap: 5,
+    paddingHorizontal: horizontalScale(12),
+    paddingVertical: verticalScale(6),
+    borderRadius: moderateScale(6),
+    gap: horizontalScale(5),
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
@@ -231,21 +232,21 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
   },
   filterText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#000000',
     fontWeight: '500',
   },
   gridContent: {
-    paddingHorizontal: 15,
+    paddingHorizontal: horizontalScale(15),
   },
   row: {
     justifyContent: 'space-between',
-    marginBottom: 15,
+    marginBottom: verticalScale(15),
   },
   card: {
     width: columnWidth,
     backgroundColor: '#FFFFFF',
-    borderRadius: 12,
+    borderRadius: moderateScale(12),
     elevation: 3,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -255,40 +256,40 @@ const styles = StyleSheet.create({
   },
   cardImage: {
     width: '100%',
-    height: 180,
+    height: verticalScale(180),
     backgroundColor: '#F3F3F3',
   },
   cardInfo: {
-    padding: 10,
+    padding: horizontalScale(10),
   },
   cardTitle: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontWeight: '700',
     color: '#000000',
-    marginBottom: 4,
+    marginBottom: verticalScale(4),
   },
   cardDesc: {
-    fontSize: 10,
+    fontSize: moderateScale(10),
     color: '#676767',
-    marginBottom: 6,
-    lineHeight: 14,
+    marginBottom: verticalScale(6),
+    lineHeight: verticalScale(14),
   },
   cardPrice: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontWeight: '700',
     color: '#000000',
-    marginBottom: 6,
+    marginBottom: verticalScale(6),
   },
   ratingRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    gap: horizontalScale(4),
   },
   stars: {
     flexDirection: 'row',
   },
   reviewsText: {
-    fontSize: 10,
+    fontSize: moderateScale(10),
     color: '#A8A8A8',
   },
 });

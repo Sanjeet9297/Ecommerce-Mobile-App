@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Dimensions, Modal
 import { Ionicons, FontAwesome, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import BottomNavigation from '../shared/bottomNavigation';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { width, height } = Dimensions.get('window');
 
@@ -27,10 +28,10 @@ export default function PaymentPage() {
       {/* 1. Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="chevron-back" size={28} color="#000000" />
+          <Ionicons name="chevron-back" size={moderateScale(28)} color="#000000" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Checkout</Text>
-        <View style={{ width: 44 }} />
+        <View style={{ width: horizontalScale(44) }} />
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
@@ -68,11 +69,11 @@ export default function PaymentPage() {
              >
                 <View style={styles.methodInfo}>
                    {method.id === 'ApplePay' ? (
-                     <FontAwesome name="apple" size={24} color="#000" />
+                     <FontAwesome name="apple" size={moderateScale(24)} color="#000" />
                    ) : (
                      <FontAwesome5 
                        name={method.icon} 
-                       size={24} 
+                       size={moderateScale(24)} 
                        color={method.color} 
                      />
                    )}
@@ -91,7 +92,7 @@ export default function PaymentPage() {
            <Text style={styles.continueText}>Continue</Text>
         </TouchableOpacity>
 
-        <View style={{ height: 100 }} />
+        <View style={{ height: verticalScale(100) }} />
       </ScrollView>
 
       {/* Success Modal */}
@@ -105,13 +106,13 @@ export default function PaymentPage() {
            <View style={styles.modalContent}>
               {/* Confetti / Dots representation */}
               <View style={styles.dotsContainer}>
-                  <View style={[styles.miniDot, { top: 10, left: 30, backgroundColor: '#FFB6C1' }]} />
-                  <View style={[styles.miniDot, { top: 40, right: 20, backgroundColor: '#FF69B4' }]} />
-                  <View style={[styles.miniDot, { bottom: 30, left: 10, backgroundColor: '#FFC0CB' }]} />
+                  <View style={[styles.miniDot, { top: verticalScale(10), left: horizontalScale(30), backgroundColor: '#FFB6C1' }]} />
+                  <View style={[styles.miniDot, { top: verticalScale(40), right: horizontalScale(20), backgroundColor: '#FF69B4' }]} />
+                  <View style={[styles.miniDot, { bottom: verticalScale(30), left: horizontalScale(10), backgroundColor: '#FFC0CB' }]} />
               </View>
 
               <View style={styles.successCircle}>
-                 <Ionicons name="checkmark" size={50} color="#FFFFFF" />
+                 <Ionicons name="checkmark" size={moderateScale(50)} color="#FFFFFF" />
               </View>
               <Text style={styles.successText}>Payment done successfully.</Text>
               
@@ -144,80 +145,80 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 50,
-    paddingBottom: 20,
+    paddingHorizontal: horizontalScale(20),
+    paddingTop: verticalScale(50),
+    paddingBottom: verticalScale(20),
   },
   backButton: {
-    width: 44,
-    height: 44,
+    width: horizontalScale(44),
+    height: horizontalScale(44),
     justifyContent: 'center',
   },
   headerTitle: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontWeight: '800',
     color: '#000000',
   },
   scrollContent: {
-    paddingHorizontal: 25,
-    paddingTop: 10,
+    paddingHorizontal: horizontalScale(25),
+    paddingTop: verticalScale(10),
   },
   summarySection: {
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   summaryRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    marginBottom: verticalScale(10),
   },
   summaryLabel: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: '#333333',
     fontWeight: '500',
   },
   summaryValue: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: '#888888',
     fontWeight: '600',
   },
   totalRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 10,
+    marginTop: verticalScale(10),
   },
   totalLabel: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     color: '#000000',
     fontWeight: '700',
   },
   totalValue: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     color: '#000000',
     fontWeight: '800',
   },
   divider: {
     height: 1,
     backgroundColor: '#EEEEEE',
-    marginVertical: 15,
+    marginVertical: verticalScale(15),
   },
   paymentSection: {
-    marginTop: 10,
+    marginTop: verticalScale(10),
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontWeight: '800',
     color: '#000000',
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   methodCard: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#F9F9F9',
-    paddingHorizontal: 20,
-    paddingVertical: 18,
-    borderRadius: 12,
-    marginBottom: 15,
+    paddingHorizontal: horizontalScale(20),
+    paddingVertical: verticalScale(18),
+    borderRadius: moderateScale(12),
+    marginBottom: verticalScale(15),
     borderWidth: 1,
     borderColor: 'transparent',
   },
@@ -226,35 +227,35 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     elevation: 4,
     shadowColor: '#F83758',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: verticalScale(2) },
     shadowOpacity: 0.1,
-    shadowRadius: 5,
+    shadowRadius: moderateScale(5),
   },
   methodInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    gap: horizontalScale(12),
   },
   methodName: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '800',
   },
   maskedNumber: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#676767',
     fontWeight: '600',
   },
   continueButton: {
     backgroundColor: '#F83758',
-    height: 60,
-    borderRadius: 12,
+    height: verticalScale(60),
+    borderRadius: moderateScale(12),
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: verticalScale(30),
   },
   continueText: {
     color: '#FFFFFF',
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontWeight: '800',
   },
   // Modal Styles
@@ -267,8 +268,8 @@ const styles = StyleSheet.create({
   modalContent: {
     width: width * 0.85,
     backgroundColor: '#FFFFFF',
-    borderRadius: 15,
-    paddingVertical: 40,
+    borderRadius: moderateScale(15),
+    paddingVertical: verticalScale(40),
     alignItems: 'center',
     position: 'relative',
   },
@@ -276,34 +277,34 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
   miniDot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
+    width: horizontalScale(10),
+    height: horizontalScale(10),
+    borderRadius: horizontalScale(5),
     position: 'absolute',
   },
   successCircle: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: horizontalScale(100),
+    height: horizontalScale(100),
+    borderRadius: horizontalScale(50),
     backgroundColor: '#F83758',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
     elevation: 10,
   },
   successText: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '800',
     color: '#333333',
     textAlign: 'center',
-    marginBottom: 30,
+    marginBottom: verticalScale(30),
   },
   okText: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: '#F83758',
     fontWeight: '700',
   },
   modalDismiss: {
-     marginTop: 10,
+     marginTop: verticalScale(10),
   }
 });

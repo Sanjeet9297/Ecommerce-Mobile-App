@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from 'rea
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { width } = Dimensions.get('window');
 
@@ -66,21 +67,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-    paddingHorizontal: 20,
+    paddingHorizontal: horizontalScale(20),
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 20,
+    marginTop: verticalScale(20),
     alignItems: 'center',
   },
   paginationLabel: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '600',
     color: '#000000',
   },
   skipButton: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '600',
     color: '#000000',
   },
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     height: width * 0.8,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: verticalScale(40),
     backgroundColor: '#FFFFFF',
   },
   illustration: {
@@ -105,57 +106,57 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
     fontWeight: '800',
     color: '#000000',
-    marginBottom: 10,
+    marginBottom: verticalScale(10),
     textAlign: 'center',
   },
   description: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#A0A0A1',
     textAlign: 'center',
-    lineHeight: 22,
-    paddingHorizontal: 10,
+    lineHeight: verticalScale(22),
+    paddingHorizontal: horizontalScale(10),
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 30,
+    paddingVertical: verticalScale(30),
     position: 'relative',
   },
   prevButtonContainer: {
     position: 'absolute',
     left: 0,
-    bottom: 25,
+    bottom: verticalScale(25),
   },
   prevButton: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
     color: '#C4C4C4',
   },
   dotsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: horizontalScale(8),
   },
   dot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
+    width: horizontalScale(10),
+    height: verticalScale(10),
+    borderRadius: moderateScale(5),
     backgroundColor: '#DEDEDE',
   },
   activeDot: {
-    width: 30,
+    width: horizontalScale(30),
     backgroundColor: '#17223B',
-    borderRadius: 5,
+    borderRadius: moderateScale(5),
   },
   nextButton: {
     position: 'absolute',
     right: 0,
-    bottom: 25,
-    fontSize: 18,
+    bottom: verticalScale(25),
+    fontSize: moderateScale(18),
     fontWeight: '700',
     color: '#F83758',
   },

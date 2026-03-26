@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import SubmitButton from '../../components/shared/submitButton';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 /**
  * Verify OTP Screen
@@ -68,7 +69,7 @@ export default function VerifyOTP() {
           <SubmitButton 
             title="Verify & Proceed" 
             onPress={() => router.push('/auth/get-started')} 
-            style={{ marginTop: 10 }}
+            style={{ marginTop: verticalScale(10) }}
           />
 
           <View style={styles.resendContainer}>
@@ -90,56 +91,56 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   scrollContent: {
-    paddingHorizontal: 25,
-    paddingTop: 60,
+    paddingHorizontal: horizontalScale(25),
+    paddingTop: verticalScale(60),
   },
   header: {
-    marginBottom: 40,
+    marginBottom: verticalScale(40),
   },
   titleText: {
-    fontSize: 36,
+    fontSize: moderateScale(36),
     fontWeight: '800',
     color: '#000000',
-    lineHeight: 45,
+    lineHeight: verticalScale(45),
   },
   formSection: {
-    gap: 25,
+    gap: verticalScale(25),
   },
   instructionText: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#676767',
-    lineHeight: 22,
-    marginBottom: 10,
+    lineHeight: verticalScale(22),
+    marginBottom: verticalScale(10),
   },
   otpContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 20,
-    marginBottom: 20,
+    gap: horizontalScale(20),
+    marginBottom: verticalScale(20),
   },
   otpInput: {
-    width: 60,
-    height: 70,
+    width: horizontalScale(60),
+    height: verticalScale(70),
     backgroundColor: '#F3F3F3',
     borderWidth: 1,
     borderColor: '#A8A8A8',
-    borderRadius: 12,
+    borderRadius: moderateScale(12),
     textAlign: 'center',
-    fontSize: 24,
+    fontSize: moderateScale(24),
     fontWeight: '700',
     color: '#000000',
   },
   resendContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 10,
+    marginTop: verticalScale(10),
   },
   resendText: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#676767',
   },
   resendLink: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#F83758',
     fontWeight: '700',
     textDecorationLine: 'underline',

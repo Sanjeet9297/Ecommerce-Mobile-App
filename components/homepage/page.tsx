@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, TouchableOpacity, FlatList, Dimensions, ImageBackground } from 'react-native';
 import { Ionicons, Feather, MaterialIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { width } = Dimensions.get('window');
 
@@ -33,7 +34,7 @@ export default function Homepage() {
       {/* Top Header Bar */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.headerButton}>
-          <Feather name="menu" size={26} color="#000000" />
+          <Feather name="menu" size={moderateScale(26)} color="#000000" />
         </TouchableOpacity>
         <View style={styles.logoContainer}>
             <View style={styles.logoShapes}>
@@ -56,14 +57,14 @@ export default function Homepage() {
       {/* Search Bar section */}
       <View style={styles.searchSection}>
         <View style={styles.searchWrapper}>
-          <Feather name="search" size={20} color="#BBBBBB" style={styles.searchIcon} />
+          <Feather name="search" size={moderateScale(20)} color="#BBBBBB" style={styles.searchIcon} />
           <TextInput 
             placeholder="Search any Product.." 
             placeholderTextColor="#BBBBBB"
             style={styles.searchInput}
           />
           <TouchableOpacity>
-             <MaterialIcons name="mic-none" size={24} color="#BBBBBB" />
+             <MaterialIcons name="mic-none" size={moderateScale(24)} color="#BBBBBB" />
           </TouchableOpacity>
         </View>
       </View>
@@ -74,11 +75,11 @@ export default function Homepage() {
         <View style={styles.filterButtons}>
           <TouchableOpacity style={styles.filterButton}>
             <Text style={styles.filterText}>Sort</Text>
-            <Ionicons name="swap-vertical" size={16} color="#000000" />
+            <Ionicons name="swap-vertical" size={moderateScale(16)} color="#000000" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.filterButton}>
             <Text style={styles.filterText}>Filter</Text>
-            <Feather name="filter" size={16} color="#000000" />
+            <Feather name="filter" size={moderateScale(16)} color="#000000" />
           </TouchableOpacity>
         </View>
       </View>
@@ -88,7 +89,7 @@ export default function Homepage() {
         horizontal 
         showsHorizontalScrollIndicator={false} 
         style={styles.categoryScroll}
-        contentContainerStyle={{ paddingLeft: 20 }}
+        contentContainerStyle={{ paddingLeft: horizontalScale(20) }}
       >
         {categories.map((item) => (
           <View key={item.id} style={styles.categoryCard}>
@@ -109,7 +110,7 @@ export default function Homepage() {
             <Text style={styles.bannerSub}>Now in (product){"\n"}All colours</Text>
             <TouchableOpacity style={styles.shopNowButton}>
               <Text style={styles.shopNowText}>Shop Now</Text>
-              <Feather name="arrow-right" size={18} color="#FFFFFF" />
+              <Feather name="arrow-right" size={moderateScale(18)} color="#FFFFFF" />
             </TouchableOpacity>
          </ImageBackground>
          <View style={styles.dotsContainer}>
@@ -124,13 +125,13 @@ export default function Homepage() {
          <View style={styles.dealContent}>
             <Text style={styles.dealTitle}>Deal of the Day</Text>
             <View style={styles.timerRow}>
-               <Feather name="clock" size={16} color="#FFFFFF" />
+               <Feather name="clock" size={moderateScale(16)} color="#FFFFFF" />
                <Text style={styles.timerText}>22h 55m 20s remaining</Text>
             </View>
          </View>
          <TouchableOpacity style={styles.viewAllButton}>
             <Text style={styles.viewAllText}>View all</Text>
-            <Feather name="arrow-right" size={18} color="#FFFFFF" />
+            <Feather name="arrow-right" size={moderateScale(18)} color="#FFFFFF" />
          </TouchableOpacity>
       </View>
 
@@ -139,7 +140,7 @@ export default function Homepage() {
         horizontal 
         showsHorizontalScrollIndicator={false} 
         style={styles.productScroll}
-        contentContainerStyle={{ paddingLeft: 20 }}
+        contentContainerStyle={{ paddingLeft: horizontalScale(20) }}
       >
         {products.map((item) => (
           <View key={item.id} style={styles.productCard}>
@@ -155,7 +156,7 @@ export default function Homepage() {
                 <View style={styles.ratingRow}>
                   <View style={styles.stars}>
                     {[1,2,3,4,5].map((_, i) => (
-                      <Ionicons key={i} name="star" size={12} color="#EDB312" />
+                      <Ionicons key={i} name="star" size={moderateScale(12)} color="#EDB312" />
                     ))}
                   </View>
                   <Text style={styles.reviewsText}>{item.reviews}</Text>
@@ -172,14 +173,14 @@ export default function Homepage() {
              source={{ uri: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=200&h=200&fit=crop' }} 
              style={styles.offerIcon}
            />
-           <View style={{ flex: 1, marginLeft: 15 }}>
+           <View style={{ flex: 1, marginLeft: horizontalScale(15) }}>
              <Text style={styles.offerTitle}>Special Offers 🌟</Text>
              <Text style={styles.offerDesc}>We make sure you get the offer you need at best prices</Text>
            </View>
          </View>
       </View>
 
-      <View style={{ height: 100 }} />
+      <View style={{ height: verticalScale(100) }} />
 
     </ScrollView>
   );
@@ -194,14 +195,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 50,
-    paddingBottom: 20,
+    paddingHorizontal: horizontalScale(20),
+    paddingTop: verticalScale(50),
+    paddingBottom: verticalScale(20),
     backgroundColor: '#FFFFFF',
   },
   headerButton: {
-    width: 44,
-    height: 44,
+    width: horizontalScale(44),
+    height: verticalScale(44),
     justifyContent: 'center',
   },
   logoContainer: {
@@ -209,15 +210,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoShapes: {
-    width: 35,
-    height: 25,
+    width: horizontalScale(35),
+    height: verticalScale(25),
     justifyContent: 'center',
-    marginRight: 5,
+    marginRight: horizontalScale(5),
   },
   circle: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
+    width: horizontalScale(20),
+    height: horizontalScale(20),
+    borderRadius: horizontalScale(10),
     position: 'absolute',
   },
   circleRed: {
@@ -230,14 +231,14 @@ const styles = StyleSheet.create({
     opacity: 0.9,
   },
   logoText: {
-    fontSize: 22,
+    fontSize: moderateScale(22),
     fontWeight: '700',
     color: '#4392F1',
   },
   profileButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: horizontalScale(44),
+    height: horizontalScale(44),
+    borderRadius: horizontalScale(22),
     overflow: 'hidden',
     backgroundColor: '#EEEEEE',
   },
@@ -246,17 +247,17 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   searchSection: {
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingHorizontal: horizontalScale(20),
+    paddingBottom: verticalScale(20),
     backgroundColor: '#FFFFFF',
   },
   searchWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    borderRadius: 10,
-    height: 55,
-    paddingHorizontal: 15,
+    borderRadius: moderateScale(10),
+    height: verticalScale(55),
+    paddingHorizontal: horizontalScale(15),
     elevation: 4,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -264,37 +265,37 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   searchIcon: {
-    marginRight: 10,
+    marginRight: horizontalScale(10),
   },
   searchInput: {
     flex: 1,
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#000000',
   },
   sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 15,
+    paddingHorizontal: horizontalScale(20),
+    paddingVertical: verticalScale(15),
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontWeight: '700',
     color: '#000000',
   },
   filterButtons: {
     flexDirection: 'row',
-    gap: 10,
+    gap: horizontalScale(10),
   },
   filterButton: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 6,
-    gap: 5,
+    paddingHorizontal: horizontalScale(12),
+    paddingVertical: verticalScale(6),
+    borderRadius: moderateScale(6),
+    gap: horizontalScale(5),
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
@@ -302,54 +303,54 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
   },
   filterText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#000000',
     fontWeight: '500',
   },
   categoryScroll: {
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   categoryCard: {
     alignItems: 'center',
-    marginRight: 15,
+    marginRight: horizontalScale(15),
   },
   categoryImage: {
-    width: 65,
-    height: 65,
-    borderRadius: 32.5,
-    marginBottom: 8,
+    width: horizontalScale(65),
+    height: horizontalScale(65),
+    borderRadius: horizontalScale(32.5),
+    marginBottom: verticalScale(8),
   },
   categoryLabel: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#212121',
     fontWeight: '500',
   },
   bannerContainer: {
-    marginHorizontal: 20,
-    marginBottom: 20,
-    borderRadius: 15,
+    marginHorizontal: horizontalScale(20),
+    marginBottom: verticalScale(20),
+    borderRadius: moderateScale(15),
     overflow: 'hidden',
   },
   banner: {
     width: '100%',
-    height: 180,
-    padding: 20,
+    height: verticalScale(180),
+    padding: horizontalScale(20),
     justifyContent: 'center',
   },
   bannerImg: {
-    borderRadius: 15,
+    borderRadius: moderateScale(15),
   },
   bannerTitle: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
     fontWeight: '800',
     color: '#FFFFFF',
-    marginBottom: 5,
+    marginBottom: verticalScale(5),
   },
   bannerSub: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#FFFFFF',
-    marginBottom: 15,
-    lineHeight: 18,
+    marginBottom: verticalScale(15),
+    lineHeight: verticalScale(18),
   },
   shopNowButton: {
     flexDirection: 'row',
@@ -357,84 +358,84 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderWidth: 1,
     borderColor: '#FFFFFF',
-    borderRadius: 6,
-    paddingHorizontal: 15,
-    paddingVertical: 8,
+    borderRadius: moderateScale(6),
+    paddingHorizontal: horizontalScale(15),
+    paddingVertical: verticalScale(8),
     alignSelf: 'flex-start',
-    gap: 8,
+    gap: horizontalScale(8),
   },
   shopNowText: {
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '600',
   },
   dotsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 10,
-    gap: 6,
+    marginTop: verticalScale(10),
+    gap: horizontalScale(6),
   },
   dot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    width: horizontalScale(8),
+    height: horizontalScale(8),
+    borderRadius: horizontalScale(4),
     backgroundColor: '#E0E0E0',
   },
   activeDot: {
     backgroundColor: '#F83758',
-    width: 20,
+    width: horizontalScale(20),
   },
   dealSection: {
     backgroundColor: '#4392F1',
-    marginHorizontal: 20,
-    borderRadius: 12,
-    padding: 15,
+    marginHorizontal: horizontalScale(20),
+    borderRadius: moderateScale(12),
+    padding: horizontalScale(15),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   dealContent: {
     flex: 1,
   },
   dealTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
     color: '#FFFFFF',
-    marginBottom: 5,
+    marginBottom: verticalScale(5),
   },
   timerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: horizontalScale(6),
   },
   timerText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#FFFFFF',
   },
   viewAllButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 6,
+    borderRadius: moderateScale(6),
     borderWidth: 1,
     borderColor: '#FFFFFF',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    gap: 5,
+    paddingHorizontal: horizontalScale(12),
+    paddingVertical: verticalScale(8),
+    gap: horizontalScale(5),
   },
   viewAllText: {
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '600',
   },
   productScroll: {
-    marginBottom: 30,
+    marginBottom: verticalScale(30),
   },
   productCard: {
     width: width * 0.45,
     backgroundColor: '#FFFFFF',
-    borderRadius: 10,
-    marginRight: 15,
+    borderRadius: moderateScale(10),
+    marginRight: horizontalScale(15),
     elevation: 3,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -444,88 +445,88 @@ const styles = StyleSheet.create({
   },
   productImage: {
     width: '100%',
-    height: 150,
+    height: verticalScale(150),
     backgroundColor: '#F0F0F0',
   },
   productInfo: {
-    padding: 10,
+    padding: horizontalScale(10),
   },
   productName: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '700',
     color: '#000000',
-    marginBottom: 4,
+    marginBottom: verticalScale(4),
   },
   productDesc: {
-    fontSize: 10,
+    fontSize: moderateScale(10),
     color: '#575757',
-    marginBottom: 8,
-    lineHeight: 14,
+    marginBottom: verticalScale(8),
+    lineHeight: verticalScale(14),
   },
   productPrice: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '700',
     color: '#000000',
-    marginBottom: 2,
+    marginBottom: verticalScale(2),
   },
   priceRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-    marginBottom: 8,
+    gap: horizontalScale(8),
+    marginBottom: verticalScale(8),
   },
   oldPrice: {
-    fontSize: 10,
+    fontSize: moderateScale(10),
     color: '#BBBBBB',
     textDecorationLine: 'underline',
   },
   offText: {
-    fontSize: 10,
+    fontSize: moderateScale(10),
     color: '#F83758',
     fontWeight: '600',
   },
   ratingRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: horizontalScale(6),
   },
   stars: {
     flexDirection: 'row',
   },
   reviewsText: {
-    fontSize: 10,
+    fontSize: moderateScale(10),
     color: '#BBBBBB',
   },
   specialOffersContainer: {
     backgroundColor: '#FFFFFF',
-    marginHorizontal: 20,
-    borderRadius: 12,
-    padding: 15,
+    marginHorizontal: horizontalScale(20),
+    borderRadius: moderateScale(12),
+    padding: horizontalScale(15),
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
     shadowRadius: 2,
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   specialHeader: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   offerIcon: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: horizontalScale(60),
+    height: horizontalScale(60),
+    borderRadius: horizontalScale(30),
   },
   offerTitle: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '700',
     color: '#000000',
-    marginBottom: 4,
+    marginBottom: verticalScale(4),
   },
   offerDesc: {
-    fontSize: 11,
+    fontSize: moderateScale(11),
     color: '#575757',
-    lineHeight: 16,
+    lineHeight: verticalScale(16),
   },
 });

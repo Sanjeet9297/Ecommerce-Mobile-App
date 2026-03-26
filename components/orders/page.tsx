@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Dimensions
 import { Ionicons, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import BottomNavigation from '../shared/bottomNavigation';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { width } = Dimensions.get('window');
 
@@ -42,17 +43,17 @@ export default function OrdersPage() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="chevron-back" size={28} color="#000000" />
+          <Ionicons name="chevron-back" size={moderateScale(28)} color="#000000" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Checkout</Text>
-        <View style={{ width: 44 }} />
+        <View style={{ width: horizontalScale(44) }} />
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         
         {/* 1. Delivery Address Section */}
         <View style={styles.sectionHeader}>
-           <Ionicons name="location-outline" size={20} color="#000000" />
+           <Ionicons name="location-outline" size={moderateScale(20)} color="#000000" />
            <Text style={styles.sectionTitle}>Delivery Address</Text>
         </View>
 
@@ -61,7 +62,7 @@ export default function OrdersPage() {
               <View style={styles.addressHeader}>
                  <Text style={styles.addressName}>Address :</Text>
                  <TouchableOpacity>
-                   <MaterialCommunityIcons name="pencil-outline" size={18} color="#676767" />
+                   <MaterialCommunityIcons name="pencil-outline" size={moderateScale(18)} color="#676767" />
                  </TouchableOpacity>
               </View>
               <Text style={styles.addressValue}>
@@ -71,12 +72,12 @@ export default function OrdersPage() {
            </View>
            
            <TouchableOpacity style={styles.addAddressCard}>
-              <Ionicons name="add-circle-outline" size={36} color="#000000" />
+              <Ionicons name="add-circle-outline" size={moderateScale(36)} color="#000000" />
            </TouchableOpacity>
         </View>
 
         {/* 2. Shopping List Section */}
-        <Text style={[styles.sectionTitle, { marginTop: 30, marginBottom: 20 }]}>Shopping List</Text>
+        <Text style={[styles.sectionTitle, { marginTop: verticalScale(30), marginBottom: verticalScale(20) }]}>Shopping List</Text>
 
         {orderItems.map((item) => (
           <View key={item.id} style={styles.orderCard}>
@@ -96,9 +97,9 @@ export default function OrdersPage() {
                       <Text style={styles.ratingValue}>{item.rating}</Text>
                       <View style={styles.stars}>
                         {[1,2,3,4].map((_, i) => (
-                          <Ionicons key={i} name="star" size={14} color="#EDB312" />
+                          <Ionicons key={i} name="star" size={moderateScale(14)} color="#EDB312" />
                         ))}
-                        <Ionicons name="star-outline" size={14} color="#EDB312" />
+                        <Ionicons name="star-outline" size={moderateScale(14)} color="#EDB312" />
                       </View>
                    </View>
                    <View style={styles.priceContainer}>
@@ -119,7 +120,7 @@ export default function OrdersPage() {
           </View>
         ))}
 
-        <View style={{ height: 100 }} />
+        <View style={{ height: verticalScale(100) }} />
       </ScrollView>
 
       {/* Persistent Bottom Navigation */}
@@ -137,44 +138,44 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 50,
+    paddingHorizontal: horizontalScale(20),
+    paddingTop: verticalScale(50),
     backgroundColor: '#FFFFFF',
-    paddingBottom: 20,
+    paddingBottom: verticalScale(20),
   },
   backButton: {
-    width: 44,
-    height: 44,
+    width: horizontalScale(44),
+    height: horizontalScale(44),
     justifyContent: 'center',
   },
   headerTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '800',
     color: '#000000',
   },
   scrollContent: {
-    paddingHorizontal: 20,
+    paddingHorizontal: horizontalScale(20),
   },
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-    marginBottom: 20,
+    gap: horizontalScale(8),
+    marginBottom: verticalScale(20),
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
     color: '#000000',
   },
   addressRow: {
     flexDirection: 'row',
-    gap: 15,
+    gap: horizontalScale(15),
   },
   addressCard: {
     flex: 3,
     backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    padding: 15,
+    borderRadius: moderateScale(12),
+    padding: horizontalScale(15),
     borderWidth: 1,
     borderColor: '#EEEEEE',
     elevation: 4,
@@ -186,7 +187,7 @@ const styles = StyleSheet.create({
   addAddressCard: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-    borderRadius: 12,
+    borderRadius: moderateScale(12),
     borderWidth: 1,
     borderColor: '#EEEEEE',
     borderStyle: 'dashed',
@@ -197,24 +198,24 @@ const styles = StyleSheet.create({
   addressHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    marginBottom: verticalScale(10),
   },
   addressName: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '700',
     color: '#000000',
   },
   addressValue: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#333333',
-    lineHeight: 18,
+    lineHeight: verticalScale(18),
   },
   orderCard: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 12,
+    borderRadius: moderateScale(12),
     borderWidth: 1,
     borderColor: '#EEEEEE',
-    marginBottom: 25,
+    marginBottom: verticalScale(25),
     overflow: 'hidden',
     elevation: 3,
     shadowColor: '#000',
@@ -224,74 +225,74 @@ const styles = StyleSheet.create({
   },
   orderMain: {
     flexDirection: 'row',
-    padding: 15,
+    padding: horizontalScale(15),
   },
   orderImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 10,
-    marginRight: 15,
+    width: horizontalScale(100),
+    height: horizontalScale(100),
+    borderRadius: moderateScale(10),
+    marginRight: horizontalScale(15),
   },
   orderInfo: {
     flex: 1,
   },
   itemName: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '800',
     color: '#000000',
-    marginBottom: 8,
+    marginBottom: verticalScale(8),
   },
   variationRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
-    marginBottom: 8,
+    gap: horizontalScale(6),
+    marginBottom: verticalScale(8),
   },
   variationLabel: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#333333',
   },
   variationBadge: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 4,
+    paddingHorizontal: horizontalScale(8),
+    paddingVertical: verticalScale(4),
+    borderRadius: moderateScale(4),
     borderWidth: 1,
     borderColor: '#EEEEEE',
   },
   variationText: {
-    fontSize: 11,
+    fontSize: moderateScale(11),
     color: '#000000',
     fontWeight: '500',
   },
   ratingRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
-    marginBottom: 12,
+    gap: horizontalScale(6),
+    marginBottom: verticalScale(12),
   },
   ratingValue: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     fontWeight: '700',
     color: '#000000',
   },
   stars: {
     flexDirection: 'row',
-    gap: 2,
+    gap: horizontalScale(2),
   },
   priceContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 15,
+    gap: horizontalScale(15),
   },
   priceBox: {
     borderWidth: 1,
     borderColor: '#EEEEEE',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 8,
+    paddingHorizontal: horizontalScale(12),
+    paddingVertical: verticalScale(6),
+    borderRadius: moderateScale(8),
   },
   currentPrice: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '800',
     color: '#000000',
   },
@@ -299,12 +300,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   offText: {
-    fontSize: 10,
+    fontSize: moderateScale(10),
     color: '#F83758',
     fontWeight: '700',
   },
   oldPrice: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#BBBBBB',
     textDecorationLine: 'line-through',
   },
@@ -313,16 +314,16 @@ const styles = StyleSheet.create({
     borderTopColor: '#EEEEEE',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 15,
+    padding: horizontalScale(15),
     alignItems: 'center',
   },
   totalLabel: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#333333',
     fontWeight: '500',
   },
   totalPrice: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '800',
     color: '#000000',
   },

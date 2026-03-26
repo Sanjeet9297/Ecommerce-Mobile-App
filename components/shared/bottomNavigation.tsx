@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, usePathname } from 'expo-router';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { width } = Dimensions.get('window');
 
@@ -37,7 +38,7 @@ const BottomNavigation = () => {
               >
                  <Ionicons 
                    name={(isActive ? item.activeIcon : item.icon) as any} 
-                   size={30} 
+                   size={moderateScale(30)} 
                    color={isActive ? '#FFFFFF' : '#000000'} 
                  />
               </TouchableOpacity>
@@ -51,7 +52,7 @@ const BottomNavigation = () => {
             style={styles.navItem}
             onPress={() => router.push(item.route as any)}
           >
-            <Ionicons name={(isActive ? item.activeIcon : item.icon) as any} size={24} color={color} />
+            <Ionicons name={(isActive ? item.activeIcon : item.icon) as any} size={moderateScale(24)} color={color} />
             <Text style={[styles.navText, { color }]}>{item.name}</Text>
           </TouchableOpacity>
         );
@@ -63,13 +64,13 @@ const BottomNavigation = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: 70,
+    height: verticalScale(70),
     backgroundColor: '#FFFFFF',
     borderTopWidth: 1,
     borderTopColor: '#EEEEEE',
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingBottom: 5,
+    paddingBottom: verticalScale(5),
     position: 'absolute',
     bottom: 0,
     width: width,
@@ -85,20 +86,20 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   navText: {
-    fontSize: 10,
-    marginTop: 4,
+    fontSize: moderateScale(10),
+    marginTop: verticalScale(4),
     fontWeight: '500',
   },
   centerButtonWrapper: {
-    marginTop: -45, 
+    marginTop: verticalScale(-45), 
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
   },
   centerButton: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: horizontalScale(60),
+    height: horizontalScale(60), // Keep it circular
+    borderRadius: horizontalScale(30),
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',

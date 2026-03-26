@@ -2,6 +2,7 @@ import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { horizontalScale, verticalScale, moderateScale } from '../constants/scaling';
 
 /**
  * Splash Screen (Entry point)
@@ -46,15 +47,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoShapes: {
-    width: 70,
-    height: 50,
+    width: horizontalScale(70),
+    height: verticalScale(50),
     justifyContent: 'center',
-    marginRight: 10,
+    marginRight: horizontalScale(10),
   },
   circle: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: horizontalScale(40),
+    height: verticalScale(40),
+    borderRadius: moderateScale(20),
     position: 'absolute',
     opacity: 1, // Full opacity to avoid looking "gray"
   },
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     opacity: 0.9, // Slight overlap effect
   },
   logoText: {
-    fontSize: 50,
+    fontSize: moderateScale(50),
     fontWeight: '700',
     color: '#F83758',
   },

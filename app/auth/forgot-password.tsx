@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import SubmitButton from '../../components/shared/submitButton';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 /**
  * Forgot Password Screen
@@ -26,7 +27,7 @@ export default function ForgotPassword() {
         {/* Input Form */}
         <View style={styles.formSection}>
           <View style={styles.inputWrapper}>
-            <Ionicons name="mail-outline" size={22} color="#676767" style={styles.inputIcon} />
+            <Ionicons name="mail-outline" size={moderateScale(22)} color="#676767" style={styles.inputIcon} />
             <TextInput 
               placeholder="Enter your email address" 
               placeholderTextColor="#676767"
@@ -46,7 +47,7 @@ export default function ForgotPassword() {
           <SubmitButton 
             title="Submit" 
             onPress={() => router.push('/auth/verify-otp')} 
-            style={{ marginTop: 10 }}
+            style={{ marginTop: verticalScale(10) }}
           />
         </View>
 
@@ -61,20 +62,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   scrollContent: {
-    paddingHorizontal: 25,
-    paddingTop: 60,
+    paddingHorizontal: horizontalScale(25),
+    paddingTop: verticalScale(60),
   },
   header: {
-    marginBottom: 40,
+    marginBottom: verticalScale(40),
   },
   titleText: {
-    fontSize: 36,
+    fontSize: moderateScale(36),
     fontWeight: '800',
     color: '#000000',
-    lineHeight: 45,
+    lineHeight: verticalScale(45),
   },
   formSection: {
-    gap: 25,
+    gap: verticalScale(25),
   },
   inputWrapper: {
     flexDirection: 'row',
@@ -82,26 +83,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
     borderWidth: 1,
     borderColor: '#A8A8A8',
-    borderRadius: 10,
-    height: 55,
-    paddingHorizontal: 15,
+    borderRadius: moderateScale(10),
+    height: verticalScale(55),
+    paddingHorizontal: horizontalScale(15),
   },
   inputIcon: {
-    marginRight: 10,
+    marginRight: horizontalScale(10),
   },
   input: {
     flex: 1,
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#000000',
     fontWeight: '500',
   },
   disclaimerSection: {
-    paddingRight: 40,
+    paddingRight: horizontalScale(40),
   },
   disclaimerText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#676767',
-    lineHeight: 18,
+    lineHeight: verticalScale(18),
   },
   asterisk: {
     color: '#F83758',

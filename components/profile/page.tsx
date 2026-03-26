@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, TouchableOpacity, Dimensions } from 'react-native';
 import { Ionicons, Feather } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { width } = Dimensions.get('window');
 
@@ -19,10 +20,10 @@ export default function ProfilePage() {
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-            <Ionicons name="chevron-back" size={28} color="#000000" />
+            <Ionicons name="chevron-back" size={moderateScale(28)} color="#000000" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Checkout</Text>
-          <View style={{ width: 44 }} /> {/* Empty space for balance */}
+          <View style={{ width: horizontalScale(44) }} /> {/* Empty space for balance */}
         </View>
 
         {/* Profile Image with Edit Action */}
@@ -33,7 +34,7 @@ export default function ProfilePage() {
               style={styles.profileImage}
             />
             <TouchableOpacity style={styles.editButton}>
-               <Feather name="edit-2" size={12} color="#FFFFFF" />
+               <Feather name="edit-2" size={moderateScale(12)} color="#FFFFFF" />
             </TouchableOpacity>
           </View>
         </View>
@@ -79,7 +80,7 @@ export default function ProfilePage() {
             <Text style={styles.inputLabel}>State</Text>
             <TouchableOpacity style={styles.dropdownInput}>
               <Text style={styles.dropdownValue}>N1 2LL,</Text>
-              <Ionicons name="chevron-down" size={20} color="#676767" />
+              <Ionicons name="chevron-down" size={moderateScale(20)} color="#676767" />
             </TouchableOpacity>
           </View>
 
@@ -116,7 +117,7 @@ export default function ProfilePage() {
            <Text style={styles.saveButtonText}>Save</Text>
         </TouchableOpacity>
 
-        <View style={{ height: 40 }} />
+        <View style={{ height: verticalScale(40) }} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -137,81 +138,81 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   scrollContent: {
-    paddingHorizontal: 25,
-    paddingTop: 50,
+    paddingHorizontal: horizontalScale(25),
+    paddingTop: verticalScale(50),
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 30,
+    marginBottom: verticalScale(30),
   },
   backButton: {
-    width: 44,
-    height: 44,
+    width: horizontalScale(44),
+    height: horizontalScale(44),
     justifyContent: 'center',
   },
   headerTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '800',
     color: '#000000',
   },
   profileSection: {
     alignItems: 'center',
-    marginBottom: 35,
+    marginBottom: verticalScale(35),
   },
   imageWrapper: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: horizontalScale(100),
+    height: horizontalScale(100),
+    borderRadius: horizontalScale(50),
     position: 'relative',
   },
   profileImage: {
     width: '100%',
     height: '100%',
-    borderRadius: 50,
+    borderRadius: horizontalScale(50),
     borderWidth: 2,
     borderColor: '#EEEEEE',
   },
   editButton: {
     position: 'absolute',
-    bottom: 5,
+    bottom: verticalScale(5),
     right: 0,
     backgroundColor: '#4392F1',
-    width: 26,
-    height: 26,
-    borderRadius: 13,
+    width: horizontalScale(26),
+    height: horizontalScale(26),
+    borderRadius: horizontalScale(13),
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
     borderColor: '#FFFFFF',
   },
   section: {
-    marginBottom: 25,
+    marginBottom: verticalScale(25),
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
     color: '#000000',
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   inputGroup: {
-    marginBottom: 15,
+    marginBottom: verticalScale(15),
   },
   inputLabel: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#333333',
-    marginBottom: 8,
+    marginBottom: verticalScale(8),
     fontWeight: '500',
   },
   input: {
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
     borderColor: '#EEEEEE',
-    borderRadius: 8,
-    height: 50,
-    paddingHorizontal: 15,
-    fontSize: 14,
+    borderRadius: moderateScale(8),
+    height: verticalScale(50),
+    paddingHorizontal: horizontalScale(15),
+    fontSize: moderateScale(14),
     color: '#000000',
     fontWeight: '600',
   },
@@ -222,21 +223,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
     borderColor: '#EEEEEE',
-    borderRadius: 8,
-    height: 50,
-    paddingHorizontal: 15,
+    borderRadius: moderateScale(8),
+    height: verticalScale(50),
+    paddingHorizontal: horizontalScale(15),
   },
   dropdownValue: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#000000',
     fontWeight: '600',
   },
   changePassContainer: {
     alignSelf: 'flex-end',
-    marginTop: 8,
+    marginTop: verticalScale(8),
   },
   changePassText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#F83758',
     textDecorationLine: 'underline',
     fontWeight: '600',
@@ -244,21 +245,21 @@ const styles = StyleSheet.create({
   divider: {
     height: 1,
     backgroundColor: '#EEEEEE',
-    marginVertical: 10,
-    marginBottom: 25,
+    marginVertical: verticalScale(10),
+    marginBottom: verticalScale(25),
   },
   saveButton: {
     backgroundColor: '#F83758',
-    height: 55,
-    borderRadius: 10,
+    height: verticalScale(55),
+    borderRadius: moderateScale(10),
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
+    marginTop: verticalScale(10),
+    marginBottom: verticalScale(20),
   },
   saveButtonText: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
   },
 });

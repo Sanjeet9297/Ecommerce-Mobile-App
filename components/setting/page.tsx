@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Switch, Dimension
 import { Ionicons, Feather, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import BottomNavigation from '../shared/bottomNavigation';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { width } = Dimensions.get('window');
 
@@ -37,7 +38,7 @@ export default function SettingsPage() {
           thumbColor={value ? "#F83758" : "#F4F3F4"}
         />
       ) : (
-        <Ionicons name="chevron-forward" size={20} color="#C4C4C4" />
+        <Ionicons name="chevron-forward" size={moderateScale(20)} color="#C4C4C4" />
       )}
     </TouchableOpacity>
   );
@@ -47,10 +48,10 @@ export default function SettingsPage() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="chevron-back" size={28} color="#000000" />
+          <Ionicons name="chevron-back" size={moderateScale(28)} color="#000000" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Settings</Text>
-        <View style={{ width: 44 }} />
+        <View style={{ width: horizontalScale(44) }} />
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
@@ -64,21 +65,21 @@ export default function SettingsPage() {
               <Text style={styles.profileName}>Aashifa</Text>
               <Text style={styles.profileEmail}>aashifa@gmail.com</Text>
            </View>
-           <Feather name="edit-3" size={20} color="#F83758" />
+           <Feather name="edit-3" size={moderateScale(20)} color="#F83758" />
         </TouchableOpacity>
 
         {/* Account Section */}
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>ACCOUNT</Text>
           <SettingsItem 
-            icon={<Ionicons name="person-outline" size={22} color="#4392F1" />} 
+            icon={<Ionicons name="person-outline" size={moderateScale(22)} color="#4392F1" />} 
             label="Personal Information" 
             subLabel="Manage your profile and details"
             iconColor="#4392F1"
             onPress={() => router.push('/profile')}
           />
           <SettingsItem 
-            icon={<Ionicons name="mail-outline" size={22} color="#50DB8C" />} 
+            icon={<Ionicons name="mail-outline" size={moderateScale(22)} color="#50DB8C" />} 
             label="Email Settings" 
             subLabel="Update your contact email"
             iconColor="#50DB8C"
@@ -89,21 +90,21 @@ export default function SettingsPage() {
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>SHOPPING</Text>
           <SettingsItem 
-            icon={<Ionicons name="receipt-outline" size={22} color="#F83758" />} 
+            icon={<Ionicons name="receipt-outline" size={moderateScale(22)} color="#F83758" />} 
             label="My Orders" 
             subLabel="Track and view history"
             iconColor="#F83758"
             onPress={() => router.push('/orders')}
           />
           <SettingsItem 
-            icon={<Ionicons name="heart-outline" size={22} color="#FF7E5F" />} 
+            icon={<Ionicons name="heart-outline" size={moderateScale(22)} color="#FF7E5F" />} 
             label="My Wishlist" 
             subLabel="Items you saved for later"
             iconColor="#FF7E5F"
             onPress={() => router.push('/wishlist')}
           />
           <SettingsItem 
-            icon={<Ionicons name="location-outline" size={22} color="#9B59B6" />} 
+            icon={<Ionicons name="location-outline" size={moderateScale(22)} color="#9B59B6" />} 
             label="Saved Addresses" 
             subLabel="Delivery locations"
             iconColor="#9B59B6"
@@ -115,7 +116,7 @@ export default function SettingsPage() {
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>PREFERENCES</Text>
           <SettingsItem 
-            icon={<Ionicons name="notifications-outline" size={22} color="#F1C40F" />} 
+            icon={<Ionicons name="notifications-outline" size={moderateScale(22)} color="#F1C40F" />} 
             label="Notifications" 
             isSwitch={true}
             value={isNotificationsEnabled}
@@ -123,13 +124,13 @@ export default function SettingsPage() {
             iconColor="#F1C40F"
           />
           <SettingsItem 
-            icon={<MaterialCommunityIcons name="earth" size={22} color="#3498DB" />} 
+            icon={<MaterialCommunityIcons name="earth" size={moderateScale(22)} color="#3498DB" />} 
             label="Language" 
             subLabel="English (US)"
             iconColor="#3498DB"
           />
           <SettingsItem 
-            icon={<Ionicons name="card-outline" size={22} color="#2ECC71" />} 
+            icon={<Ionicons name="card-outline" size={moderateScale(22)} color="#2ECC71" />} 
             label="Payment Methods" 
             subLabel="Manage saved cards"
             iconColor="#2ECC71"
@@ -140,12 +141,12 @@ export default function SettingsPage() {
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>SUPPORT</Text>
           <SettingsItem 
-            icon={<Feather name="help-circle" size={22} color="#1ABC9C" />} 
+            icon={<Feather name="help-circle" size={moderateScale(22)} color="#1ABC9C" />} 
             label="Help Center" 
             iconColor="#1ABC9C"
           />
           <SettingsItem 
-            icon={<Feather name="shield" size={22} color="#34495E" />} 
+            icon={<Feather name="shield" size={moderateScale(22)} color="#34495E" />} 
             label="Privacy Policy" 
             iconColor="#34495E"
           />
@@ -153,12 +154,12 @@ export default function SettingsPage() {
             style={styles.logoutBtn}
             onPress={() => router.replace('/auth/login')}
           >
-             <Ionicons name="log-out-outline" size={24} color="#F83758" />
+             <Ionicons name="log-out-outline" size={moderateScale(24)} color="#F83758" />
              <Text style={styles.logoutText}>Logout</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={{ height: 100 }} />
+        <View style={{ height: verticalScale(100) }} />
       </ScrollView>
 
       {/* Persistent Bottom Navigation */}
@@ -176,10 +177,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 50,
+    paddingHorizontal: horizontalScale(20),
+    paddingTop: verticalScale(50),
     backgroundColor: '#FFFFFF',
-    paddingBottom: 20,
+    paddingBottom: verticalScale(20),
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -187,25 +188,25 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   backButton: {
-    width: 44,
-    height: 44,
+    width: horizontalScale(44),
+    height: horizontalScale(44),
     justifyContent: 'center',
   },
   headerTitle: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontWeight: '800',
     color: '#000000',
   },
   scrollContent: {
-    paddingVertical: 15,
+    paddingVertical: verticalScale(15),
   },
   profileSummary: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    paddingHorizontal: 20,
-    paddingVertical: 20,
-    marginBottom: 25,
+    paddingHorizontal: horizontalScale(20),
+    paddingVertical: verticalScale(20),
+    marginBottom: verticalScale(25),
     elevation: 3,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -213,18 +214,18 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
   },
   profileImagePlaceholder: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: horizontalScale(60),
+    height: horizontalScale(60),
+    borderRadius: horizontalScale(30),
     backgroundColor: '#FDECEF',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 15,
+    marginRight: horizontalScale(15),
     borderWidth: 1,
     borderColor: '#F8375830',
   },
   profileInitial: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
     fontWeight: '800',
     color: '#F83758',
   },
@@ -232,34 +233,34 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   profileName: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
     color: '#000000',
   },
   profileEmail: {
-    fontSize: 13,
+    fontSize: moderateScale(13),
     color: '#777777',
-    marginTop: 2,
+    marginTop: verticalScale(2),
   },
   section: {
-    marginBottom: 20,
-    paddingHorizontal: 20,
+    marginBottom: verticalScale(20),
+    paddingHorizontal: horizontalScale(20),
   },
   sectionHeader: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     fontWeight: '800',
     color: '#BBBBBB',
     letterSpacing: 1.2,
-    marginBottom: 12,
-    marginLeft: 5,
+    marginBottom: verticalScale(12),
+    marginLeft: horizontalScale(5),
   },
   itemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    padding: 15,
-    borderRadius: 15,
-    marginBottom: 12,
+    padding: horizontalScale(15),
+    borderRadius: moderateScale(15),
+    marginBottom: verticalScale(12),
     elevation: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -267,38 +268,38 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   iconWrapper: {
-    width: 44,
-    height: 44,
-    borderRadius: 12,
+    width: horizontalScale(44),
+    height: horizontalScale(44),
+    borderRadius: moderateScale(12),
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 15,
+    marginRight: horizontalScale(15),
   },
   textContainer: {
     flex: 1,
   },
   label: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontWeight: '600',
     color: '#000000',
   },
   subLabel: {
-    fontSize: 11,
+    fontSize: moderateScale(11),
     color: '#999999',
-    marginTop: 2,
+    marginTop: verticalScale(2),
   },
   logoutBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FDECEF',
-    padding: 16,
-    borderRadius: 15,
-    marginTop: 10,
-    gap: 12,
+    padding: horizontalScale(16),
+    borderRadius: moderateScale(15),
+    marginTop: verticalScale(10),
+    gap: horizontalScale(12),
   },
   logoutText: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '700',
     color: '#F83758',
   },

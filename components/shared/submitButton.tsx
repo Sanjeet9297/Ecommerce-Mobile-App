@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 interface SubmitButtonProps {
   title: string;
@@ -27,15 +28,15 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ title, onPress, style, text
 const styles = StyleSheet.create({
   button: {
     backgroundColor: '#F83758',
-    height: 55,
-    borderRadius: 5,
+    height: verticalScale(55),
+    borderRadius: moderateScale(5),
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
   },
   buttonText: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
   },
 });

@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import SubmitButton from '../../components/shared/submitButton';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 /**
  * Signup Screen
@@ -28,7 +29,7 @@ export default function SignupScreen() {
         {/* Form */}
         <View style={styles.form}>
           <View style={styles.inputWrapper}>
-             <Ionicons name="person-outline" size={20} color="#676767" style={styles.inputIcon} />
+             <Ionicons name="person-outline" size={moderateScale(20)} color="#676767" style={styles.inputIcon} />
             <TextInput 
               placeholder="Username or Email" 
               placeholderTextColor="#676767"
@@ -37,7 +38,7 @@ export default function SignupScreen() {
           </View>
 
           <View style={styles.inputWrapper}>
-            <Ionicons name="lock-closed-outline" size={20} color="#676767" style={styles.inputIcon} />
+            <Ionicons name="lock-closed-outline" size={moderateScale(20)} color="#676767" style={styles.inputIcon} />
             <TextInput 
               placeholder="Password" 
               placeholderTextColor="#676767"
@@ -45,12 +46,12 @@ export default function SignupScreen() {
               secureTextEntry={!showPassword}
             />
             <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-              <Ionicons name={showPassword ? "eye-off-outline" : "eye-outline"} size={20} color="#676767" />
+              <Ionicons name={showPassword ? "eye-off-outline" : "eye-outline"} size={moderateScale(20)} color="#676767" />
             </TouchableOpacity>
           </View>
 
           <View style={styles.inputWrapper}>
-            <Ionicons name="lock-closed-outline" size={20} color="#676767" style={styles.inputIcon} />
+            <Ionicons name="lock-closed-outline" size={moderateScale(20)} color="#676767" style={styles.inputIcon} />
             <TextInput 
               placeholder="Confirm Password" 
               placeholderTextColor="#676767"
@@ -58,7 +59,7 @@ export default function SignupScreen() {
               secureTextEntry={!showConfirmPassword}
             />
             <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
-              <Ionicons name={showConfirmPassword ? "eye-off-outline" : "eye-outline"} size={20} color="#676767" />
+              <Ionicons name={showConfirmPassword ? "eye-off-outline" : "eye-outline"} size={moderateScale(20)} color="#676767" />
             </TouchableOpacity>
           </View>
 
@@ -72,7 +73,7 @@ export default function SignupScreen() {
           <SubmitButton 
             title="Create Account" 
             onPress={() => router.replace('/')} 
-            style={{ marginTop: 20 }}
+            style={{ marginTop: verticalScale(20) }}
           />
         </View>
 
@@ -81,13 +82,13 @@ export default function SignupScreen() {
           <Text style={styles.socialTitle}>- OR Continue with -</Text>
           <View style={styles.socialButtons}>
             <TouchableOpacity style={styles.socialCircle}>
-              <FontAwesome name="google" size={24} color="#DB4437" />
+              <FontAwesome name="google" size={moderateScale(24)} color="#DB4437" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.socialCircle}>
-              <FontAwesome name="apple" size={24} color="#000000" />
+              <FontAwesome name="apple" size={moderateScale(24)} color="#000000" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.socialCircle}>
-              <FontAwesome name="facebook" size={24} color="#4267B2" />
+              <FontAwesome name="facebook" size={moderateScale(24)} color="#4267B2" />
             </TouchableOpacity>
           </View>
         </View>
@@ -111,22 +112,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   scrollContent: {
-    paddingHorizontal: 25,
-    paddingTop: 40,
-    paddingBottom: 20,
+    paddingHorizontal: horizontalScale(25),
+    paddingTop: verticalScale(40),
+    paddingBottom: verticalScale(20),
   },
   header: {
-    marginBottom: 35,
+    marginBottom: verticalScale(35),
   },
   createAccountText: {
-    fontSize: 36,
+    fontSize: moderateScale(36),
     fontWeight: '800',
     color: '#000000',
-    lineHeight: 45,
+    lineHeight: verticalScale(45),
   },
   form: {
-    gap: 20,
-    marginBottom: 40,
+    gap: verticalScale(20),
+    marginBottom: verticalScale(40),
   },
   inputWrapper: {
     flexDirection: 'row',
@@ -134,26 +135,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
     borderWidth: 1,
     borderColor: '#A8A8A8',
-    borderRadius: 10,
-    height: 55,
-    paddingHorizontal: 15,
+    borderRadius: moderateScale(10),
+    height: verticalScale(55),
+    paddingHorizontal: horizontalScale(15),
   },
   inputIcon: {
-    marginRight: 10,
+    marginRight: horizontalScale(10),
   },
   input: {
     flex: 1,
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#000000',
     fontWeight: '500',
   },
   disclaimerContainer: {
-    marginVertical: 5,
+    marginVertical: verticalScale(5),
   },
   disclaimerText: {
     color: '#676767',
-    fontSize: 12,
-    lineHeight: 18,
+    fontSize: moderateScale(12),
+    lineHeight: verticalScale(18),
   },
   highlightText: {
     color: '#F83758',
@@ -161,21 +162,21 @@ const styles = StyleSheet.create({
   },
   socialSection: {
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: verticalScale(30),
   },
   socialTitle: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#575757',
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
   socialButtons: {
     flexDirection: 'row',
-    gap: 15,
+    gap: horizontalScale(15),
   },
   socialCircle: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: horizontalScale(60),
+    height: horizontalScale(60), // Keep it circular
+    borderRadius: horizontalScale(30),
     borderWidth: 1,
     borderColor: '#F83758',
     backgroundColor: '#FCF3F6',
@@ -188,11 +189,11 @@ const styles = StyleSheet.create({
     marginTop: 'auto',
   },
   footerText: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#575757',
   },
   loginText: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#F83758',
     fontWeight: '700',
     textDecorationLine: 'underline',

@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 /**
  * Reset Password Screen
@@ -27,7 +28,7 @@ export default function ResetPassword() {
         {/* Input Form Section */}
         <View style={styles.formSection}>
           <View style={styles.inputWrapper}>
-            <Ionicons name="lock-closed-outline" size={22} color="#676767" style={styles.inputIcon} />
+            <Ionicons name="lock-closed-outline" size={moderateScale(22)} color="#676767" style={styles.inputIcon} />
             <TextInput 
               placeholder="New Password" 
               placeholderTextColor="#676767"
@@ -35,12 +36,12 @@ export default function ResetPassword() {
               secureTextEntry={!showPassword}
             />
             <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-              <Ionicons name={showPassword ? "eye-off-outline" : "eye-outline"} size={22} color="#676767" />
+              <Ionicons name={showPassword ? "eye-off-outline" : "eye-outline"} size={moderateScale(22)} color="#676767" />
             </TouchableOpacity>
           </View>
 
           <View style={styles.inputWrapper}>
-             <Ionicons name="lock-closed-outline" size={22} color="#676767" style={styles.inputIcon} />
+             <Ionicons name="lock-closed-outline" size={moderateScale(22)} color="#676767" style={styles.inputIcon} />
             <TextInput 
               placeholder="Confirm Password" 
               placeholderTextColor="#676767"
@@ -48,7 +49,7 @@ export default function ResetPassword() {
               secureTextEntry={!showConfirmPassword}
             />
             <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
-              <Ionicons name={showConfirmPassword ? "eye-off-outline" : "eye-outline"} size={22} color="#676767" />
+              <Ionicons name={showConfirmPassword ? "eye-off-outline" : "eye-outline"} size={moderateScale(22)} color="#676767" />
             </TouchableOpacity>
           </View>
 
@@ -71,20 +72,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   scrollContent: {
-    paddingHorizontal: 25,
-    paddingTop: 60,
+    paddingHorizontal: horizontalScale(25),
+    paddingTop: verticalScale(60),
   },
   header: {
-    marginBottom: 40,
+    marginBottom: verticalScale(40),
   },
   titleText: {
-    fontSize: 36,
+    fontSize: moderateScale(36),
     fontWeight: '800',
     color: '#000000',
-    lineHeight: 45,
+    lineHeight: verticalScale(45),
   },
   formSection: {
-    gap: 25,
+    gap: verticalScale(25),
   },
   inputWrapper: {
     flexDirection: 'row',
@@ -92,30 +93,30 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
     borderWidth: 1,
     borderColor: '#A8A8A8',
-    borderRadius: 10,
-    height: 55,
-    paddingHorizontal: 15,
+    borderRadius: moderateScale(10),
+    height: verticalScale(55),
+    paddingHorizontal: horizontalScale(15),
   },
   inputIcon: {
-    marginRight: 10,
+    marginRight: horizontalScale(10),
   },
   input: {
     flex: 1,
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#000000',
     fontWeight: '500',
   },
   confirmButton: {
     backgroundColor: '#F83758',
-    height: 55,
-    borderRadius: 5,
+    height: verticalScale(55),
+    borderRadius: moderateScale(5),
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: verticalScale(20),
   },
   confirmButtonText: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '700',
   },
 });

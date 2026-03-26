@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Dimensions }
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import SubmitButton from '../../components/shared/submitButton';
+import { horizontalScale, verticalScale, moderateScale } from '../../constants/scaling';
 
 const { height, width } = Dimensions.get('window');
 
@@ -35,7 +36,7 @@ export default function GetStarted() {
           <SubmitButton 
             title="Get Started" 
             onPress={() => router.replace('/home')} 
-            style={{ height: 60 }} 
+            style={{ height: verticalScale(60) }} 
           />
         </View>
       </ImageBackground>
@@ -48,8 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   background: {
-    width: width,
-    height: height,
+    flex: 1,
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
@@ -59,23 +59,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    paddingBottom: 60,
-    paddingHorizontal: 25,
+    paddingBottom: verticalScale(60),
+    paddingHorizontal: horizontalScale(25),
   },
   textContainer: {
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: verticalScale(40),
   },
   titleText: {
-    fontSize: 34,
+    fontSize: moderateScale(34),
     fontWeight: '800',
     color: '#FFFFFF',
     textAlign: 'center',
-    lineHeight: 45,
-    marginBottom: 10,
+    lineHeight: verticalScale(45),
+    marginBottom: verticalScale(10),
   },
   subtitleText: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#F2F2F2',
     textAlign: 'center',
     fontWeight: '500',
